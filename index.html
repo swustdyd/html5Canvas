@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.1.1.min.js"></script>
+    <script src="jQuery-digitClock.js"></script>
+    <script src="jQuery-drawStart.js"></script>
+    <style type="text/css">
+        body,html{
+            margin: 0;
+            padding: 0;
+        }
+        .canvas-div{
+            border: 1px #aaa solid;
+            margin: 0 auto;
+            width: 1583px;
+            height: 780px;
+            display: none;
+        }
+        canvas{
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="canvas-div clock-div">
+        <canvas id="clock">
+            浏览器版本过低，请升级或更换浏览器
+        </canvas>
+    </div>
+    <div class="canvas-div sky-div">
+        <canvas id="sky" width="1583px" height="780px">
+            浏览器版本过低，请升级或更换浏览器
+        </canvas>
+    </div>
+    <script>
+        $(document).ready(function(){
+            /*$(".clock-div").show();
+            $("#clock").startClock();*/
+            $(".sky-div").show();
+            drawStartSky();
+
+        });
+        function drawStartSky(){
+            var sky = document.getElementById("sky");
+            var context = sky.getContext("2d");
+            var linearGrad = context.createLinearGradient(0, 0, 0, sky.height);//线性渐变
+            var radialGrad = context.createRadialGradient(sky.width/2, sky.height, 0, sky.width/2, sky.height, sky.height);//放射性渐变
+            radialGrad.addColorStop(0, "#fff");
+            radialGrad.addColorStop(0.1, "#01074D");
+            radialGrad.addColorStop(1, "#000");
+
+            linearGrad.addColorStop(0, "#000");
+            linearGrad.addColorStop(1, "#01074D");
+            context.fillStyle = radialGrad;
+            context.fillRect(0, 0, sky.width, sky.height);
+            var i = 0;
+            var startNum = 150;
+            for (; i < startNum; i++){
+                var R =Math.random() * 10 + 10;
+                var x = Math.random() * sky.width;
+                var y = Math.random() * sky.height * 0.65;
+                var rot = Math.random() * 360;
+                $("#sky").drawStart(R, x, y, rot);
+            }
+        }
+    </script>
+</body>
+</html>
