@@ -6,6 +6,8 @@
     <script src="jquery-3.1.1.min.js"></script>
     <script src="jQuery-digitClock.js"></script>
     <script src="jQuery-canvas-draw.js"></script>
+    <script src="jQuery-ballAnimate.js"></script>
+    <script src="jQuery-spotlight.js"></script>
     <style type="text/css">
         body,html{
             margin: 0;
@@ -16,51 +18,38 @@
             margin: 0 auto;
             width: 1583px;
             height: 780px;
-            display: none;
         }
         canvas{
             height: 100%;
+            width: 100%;
         }
     </style>
 </head>
 <body>
     <div class="canvas-div clock-div">
-        <canvas id="clock" width="1583px" height="780px">
-            浏览器版本过低，请升级或更换浏览器
-        </canvas>
-    </div>
-    <div class="canvas-div sky-div">
-        <canvas id="sky" width="1583px" height="780px">
+        <canvas id="canvas" width="1583px" height="780px">
             浏览器版本过低，请升级或更换浏览器
         </canvas>
     </div>
     <script>
         $(document).ready(function(){
-            /*$(".clock-div").show();
-             $("#clock").drawRoundRect(50, 50, 80, 30, 8, {strokeStyle: "#000"});
-             $("#clock").fillRoundRect(50, 100, 80, 30, 8);
-             $("#clock").fillMoon(50, 300, 300, 100);*/
-            $(".sky-div").show();
-            drawStartSky();
+            $("#canvas").spotLight();
+            //drawStartSky();
         });
 
         function drawStartSky(){
-            var sky = document.getElementById("sky");
+            var sky = document.getElementById("canvas");
             var context = sky.getContext("2d");
-            var linearGrad = context.createLinearGradient(0, 0, 0, sky.height);//线性渐变
-            /*var radialGrad = context.createRadialGradient(sky.width/2, sky.height, 0, sky.width/2, sky.height, sky.height);//放射性渐变
-            radialGrad.addColorStop(0, "#fff");
-            radialGrad.addColorStop(0.1, "#031099");
-            radialGrad.addColorStop(0.2, "#04128c");
-            radialGrad.addColorStop(0.3, "#030f80");
-            radialGrad.addColorStop(0.4, "#030f73");
-            radialGrad.addColorStop(0.5, "#020a66");
-            radialGrad.addColorStop(0.6, "#020b59");
-            radialGrad.addColorStop(0.7, "#020b4d");
-            radialGrad.addColorStop(0.8, "#020840");
-            radialGrad.addColorStop(0.9, "#020733");
-            radialGrad.addColorStop(1, "#000");*/
-
+            context.beginPath();
+            context.fillStyle = "blue";
+            context.shadowColor = "#aaa";
+            context.shadowOffsetX = 5;
+            context.shadowOffsetY = 5;
+            context.shadowBlur = 5;
+            context.arc(400, 400, 200, 0, 2 * Math.PI);
+            context.arc(400, 400, 150, 0 , 2 * Math.PI, true);
+            context.fill();
+            /*var linearGrad = context.createLinearGradient(0, 0, 0, sky.height);//线性渐变
             linearGrad.addColorStop(0, "#000");
             linearGrad.addColorStop(1, "#020b4d");
             context.fillStyle = linearGrad;
@@ -72,9 +61,9 @@
                 var x = Math.random() * sky.width;
                 var y = Math.random() * sky.height * 0.65;
                 var rot = Math.random() * 360;
-                $("#sky").drawStart(R, x, y, rot);
+                $("#canvas").drawStart(R, x, y, rot);
             }
-            $("#sky").fillMoon(sky.width * 0.8 , sky.height * 0.3, 200, 100, {}, 15);
+            $("#canvas").fillMoon(sky.width * 0.8 , sky.height * 0.3, 200, 100, {}, 15);*/
         }
     </script>
 </body>

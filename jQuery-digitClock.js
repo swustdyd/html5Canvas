@@ -148,23 +148,20 @@
     var balls = [];
     var ballsColor = ["#12175a", "#5A392B", "#5A1F58", "#F569DE", "#2BEF2B", "#F51B1B", "#1EEDF5", "#F5E419"];
     $.fn.extend({
-        "startClock": function(){
-            WINDOW_WIDTH = this.width();
-            WINDOW_HEIGHT = this.height();
-            MARGIN_LEFT = Math.ceil(WINDOW_WIDTH / 10);
-            MARGIN_TOP = Math.floor(WINDOW_HEIGHT / 5);
-            RADIUS = Math.ceil(WINDOW_WIDTH * 4 / 5 / 108) - 1;
-            //alert(this.attr("id"));return;
+        "digitClock": function(){
             var canvas = document.getElementById(this.attr("id"));
             var context;
             try {
                 context = canvas.getContext("2d");
             }catch (e){
-                throw "function 'startClock' only supported by canvas tag or must be have id for attribute";
+                throw "function 'startClock' only supported by canvas tag and must be have id for attribute";
                 return;
             }
-            canvas.width = WINDOW_WIDTH;
-            canvas.height = WINDOW_HEIGHT;
+            WINDOW_WIDTH = canvas.width;
+            WINDOW_HEIGHT = canvas.height;
+            MARGIN_LEFT = Math.ceil(WINDOW_WIDTH / 10);
+            MARGIN_TOP = Math.floor(WINDOW_HEIGHT / 5);
+            RADIUS = Math.ceil(WINDOW_WIDTH * 4 / 5 / 108) - 1;
             setInterval(function () {
                 render(context);
                 update();
