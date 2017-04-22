@@ -144,15 +144,22 @@
     var currentShowSeconds = 0;
     var balls = [];
     var clockBalls = [];
-    var clockBallsColor = "#136086";
+    var clockBallsColor = "#fff";
     var ballsColor = ["#12175a", "#5A392B", "#5A1F58", "#F569DE", "#2BEF2B", "#F51B1B", "#1EEDF5", "#F5E419"];
     var isMoving = false;
-    var speed = 5;
+    var speed = 10;
     var isBacking = false;
     var backTime = 1;
     var fps = 24;
+    var endTime = +new Date();
+    var timer;
+    var globalContext;
     $.fn.extend({
-        "digitClock2": function(){
+        /**
+         * 倒计时方法
+         * @param {number} [time] 倒计时，单位小时 <= 99
+         */
+        "digitClock2": function(time){
             var canvas = document.getElementById(this.attr("id"));
             var context;
             try {
@@ -166,6 +173,9 @@
             MARGIN_LEFT = Math.ceil(WINDOW_WIDTH / 10);
             MARGIN_TOP = Math.floor(WINDOW_HEIGHT / 5);
             RADIUS = Math.ceil(WINDOW_WIDTH * 4 / 5 / 108) - 1;
+            time = Math.min( time || 1, 99);
+            endTime += Math.floor(time * 3600 * 1000);
+            globalContext = context;
             canvas.addEventListener("click", function () {
                 if(!isMoving){
                     setClockSpeed();
@@ -177,7 +187,7 @@
                     isBacking = true;
                 }
             });
-            setInterval(function () {
+           timer = setInterval(function () {
                 if(isMoving){
                     updateMovingBalls();
                     renderMovingBalls(context);
@@ -204,11 +214,13 @@
     }
 
     function getCurrentSeconds(){
-        var date  = new Date();
+        /*var date  = new Date();
         var hours = +date.getHours();
         var minutes = +date.getMinutes();
         var seconds = +date.getSeconds();
-        var ret = hours *3600 + minutes * 60 + seconds;
+        var ret = hours *3600 + minutes * 60 + seconds;*/
+        var ret = endTime - new Date();
+        ret = Math.floor( ret / 1000 );
         return ret >= 0 ? ret : 0;
     }
 
@@ -217,14 +229,16 @@
         for(; i < clockBalls.length; i++){
             clockBalls[i].vx = Math.random() * speed * Math.pow(-1, Math.ceil(Math.random() * 1000));
             clockBalls[i].vy = Math.random() * speed * Math.pow(-1, Math.ceil(Math.random() * 1000));
-            //clockBalls[i].color = ballsColor[Math.floor(Math.random() * ballsColor.length)];
-            clockBalls[i].color = clockBallsColor;
+            clockBalls[i].color = ballsColor[Math.floor(Math.random() * ballsColor.length)];
+            //clockBalls[i].color = clockBallsColor;
         }
     }
 
     function renderMovingBalls(context) {
         context.save();
         context.clearRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
+        context.fillStyle = "#000";
+        context.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
         var i = 0;
         for(; i < clockBalls.length; i++){
             context.beginPath();
@@ -307,6 +321,12 @@
             currentShowSeconds = nextShowSeconds;
         }
         updateBalls();
+        if(nextShowSeconds == 0){
+            setTimeout(function () {
+                clearInterval(timer);
+                render(globalContext);
+            }, 1000 * 20);
+        }
     }
 
     function addBalls(x, y, num) {
@@ -355,6 +375,8 @@
     function render(context){
         context.clearRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
         clockBalls = [];
+        context.fillStyle = "#000";
+        context.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
         var hours = parseInt(currentShowSeconds / 3600);
         var minutes = parseInt((currentShowSeconds - hours * 3600) / 60);
         var seconds = currentShowSeconds % 60;
