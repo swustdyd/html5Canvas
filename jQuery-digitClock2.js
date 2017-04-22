@@ -170,6 +170,7 @@
                     setClockSpeed();
                     isMoving = !isMoving;
                     balls = [];
+                    currentShowSeconds = 0
                 }else{
                     setBackPath();
                     isBacking = true;
