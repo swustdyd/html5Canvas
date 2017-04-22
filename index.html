@@ -13,12 +13,14 @@
         body,html{
             margin: 0;
             padding: 0;
+            width: 100%;
+            height: 100%;
         }
         .canvas-div{
             border: 1px #aaa solid;
             margin: 0 auto;
-            width: 1583px;
-            height: 780px;
+            width: 100%;
+            height: 100%;
         }
         canvas{
             height: 100%;
@@ -28,12 +30,14 @@
 </head>
 <body>
     <div class="canvas-div clock-div">
-        <canvas id="canvas" width="1583px" height="780px">
+        <canvas id="canvas" >
             浏览器版本过低，请升级或更换浏览器
         </canvas>
     </div>
     <script>
         $(document).ready(function(){
+            $("#canvas").attr("width", document.body.clientWidth);
+            $("#canvas").attr("height", document.body.clientHeight);
             $("#canvas").digitClock2();
             //drawStartSky();
         });
