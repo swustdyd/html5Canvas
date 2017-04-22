@@ -149,6 +149,7 @@
     var isMoving = false;
     var speed = 20;
     var isBacking = false;
+    var fps = 24;
     $.fn.extend({
         "digitClock2": function(){
             var canvas = document.getElementById(this.attr("id"));
@@ -168,6 +169,7 @@
                 if(!isMoving){
                     setClockSpeed();
                     isMoving = !isMoving;
+                    balls = [];
                 }else{
                     setBackPath();
                     isBacking = true;
@@ -182,15 +184,18 @@
                     update();
                     isBacking = false;
                 }
-            }, 40);
+            }, 1000/fps);
         }
     });
 
     function setBackPath() {
         var i = 0;
         for (; i < clockBalls.length; i++){
-            var vy = (clockBalls[i].targetY - clockBalls[i].y) / Math.abs(clockBalls[i].targetY - clockBalls[i].y) * 2;
-            var vx = vy * (clockBalls[i].targetX - clockBalls[i].x) / (clockBalls[i].targetY - clockBalls[i].y);
+            var dX = clockBalls[i].targetX - clockBalls[i].x;
+            var dY = clockBalls[i].targetY - clockBalls[i].y;
+            var d = Math.sqrt(dX*dX + dY*dY);
+            var vy = dY / fps;
+            var vx = vy * dX / dY;
             clockBalls[i].vx = vx;
             clockBalls[i].vy = vy;
         }
@@ -216,6 +221,7 @@
     }
 
     function renderMovingBalls(context) {
+        context.save();
         context.clearRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
         var i = 0;
         for(; i < clockBalls.length; i++){
@@ -225,12 +231,14 @@
             context.closePath();
             context.fill();
         }
+        context.restore();
     }
 
     function updateMovingBalls() {
         var i = 0;
         for(; i < clockBalls.length; i++){
-            if( isBacking && (Math.abs(clockBalls[i].x - clockBalls[i].targetX) <= 1 || Math.abs(clockBalls[i].y - clockBalls[i].targetY) <= 1)){
+            if( isBacking && (Math.abs(clockBalls[i].x - clockBalls[i].targetX) <= 1
+                || Math.abs(clockBalls[i].y - clockBalls[i].targetY) <= 1)){
                 clockBalls[i].hasBack = true;
                 continue;
             }
@@ -261,7 +269,9 @@
             }
         }
         if(clockBalls.length - allHasBack <= 5){
-            isMoving = !isMoving;
+            setTimeout(function () {
+                isMoving = !isMoving;
+            }, 100);
         }
     }
 
