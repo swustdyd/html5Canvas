@@ -136,8 +136,8 @@
             [0,0,0,0]
         ]//:
     ];
-    var WINDOW_WIDTH = 1024;
-    var WINDOW_HEIGHT = 768;
+    var WINDOW_WIDTH = 500;
+    var WINDOW_HEIGHT = 300;
     var RADIUS = 8;
     var MARGIN_TOP = 60;
     var MARGIN_LEFT = 30;
@@ -147,8 +147,9 @@
     var clockBallsColor = "#136086";
     var ballsColor = ["#12175a", "#5A392B", "#5A1F58", "#F569DE", "#2BEF2B", "#F51B1B", "#1EEDF5", "#F5E419"];
     var isMoving = false;
-    var speed = 20;
+    var speed = 5;
     var isBacking = false;
+    var backTime = 1;
     var fps = 24;
     $.fn.extend({
         "digitClock2": function(){
@@ -195,7 +196,7 @@
             var dX = clockBalls[i].targetX - clockBalls[i].x;
             var dY = clockBalls[i].targetY - clockBalls[i].y;
             var d = Math.sqrt(dX*dX + dY*dY);
-            var vy = dY / fps;
+            var vy = dY / fps / backTime;
             var vx = vy * dX / dY;
             clockBalls[i].vx = vx;
             clockBalls[i].vy = vy;
@@ -396,11 +397,11 @@
                         targetX: x + j * 2 *(RADIUS + 1) + (RADIUS + 1),
                         targetY: y + i * 2 *(RADIUS + 1) + (RADIUS + 1)
                     };
-                    clockBalls.push(clockBall);
                     context.beginPath();
                     context.arc(clockBall.x, clockBall.y, clockBall.r, 0, 2 * Math.PI);
                     context.closePath();
                     context.fill();
+                    clockBalls.push(clockBall);
                 }
             }
         }
