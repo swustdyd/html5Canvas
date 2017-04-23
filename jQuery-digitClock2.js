@@ -147,9 +147,9 @@
     var clockBallsColor = "#fff";
     var ballsColor = ["#12175a", "#5A392B", "#5A1F58", "#F569DE", "#2BEF2B", "#F51B1B", "#1EEDF5", "#F5E419"];
     var isMoving = false;
-    var speed = 5;
+    var speed = 10;
     var isBacking = false;
-    var backTime = 1;
+    var backTime = 1.5;
     var fps = 24;
     var endTime = +new Date();
     var timer;
