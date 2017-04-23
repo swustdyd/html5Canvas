@@ -147,7 +147,7 @@
     var clockBallsColor = "#fff";
     var ballsColor = ["#12175a", "#5A392B", "#5A1F58", "#F569DE", "#2BEF2B", "#F51B1B", "#1EEDF5", "#F5E419"];
     var isMoving = false;
-    var speed = 10;
+    var speed = 5;
     var isBacking = false;
     var backTime = 1;
     var fps = 24;
@@ -239,6 +239,7 @@
         context.clearRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
         context.fillStyle = "#000";
         context.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
+        context.globalAlpha = 0.8;
         var i = 0;
         for(; i < clockBalls.length; i++){
             context.beginPath();
@@ -393,14 +394,16 @@
         /*if(balls.length > 2000){
          balls.splice(0, 1000);
          }*/
+        context.save();
         for(; i < balls.length; i++){
             context.fillStyle = balls[i].color;
             context.beginPath();
+            context.globalAlpha = 0.8;
             context.arc(balls[i].x, balls[i].y, RADIUS, 0, 2 * Math.PI);
             context.closePath();
             context.fill();
         }
-        //console.log(balls.length);
+        context.restore();
     }
 
     function renderDigit(x, y, num, context){
