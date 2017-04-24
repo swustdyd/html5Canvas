@@ -65,10 +65,10 @@
             var scale = parseFloat($("#scale-range").val());
             var step = parseFloat($("#scale-range").attr("step"));
             if(direct < 0){//下滚，缩小
-                scale = Math.max(scale - step, $("#scale-range").attr("min"));
+                scale = Math.max(scale - 5*step, $("#scale-range").attr("min"));
             }
             if(direct > 0){
-                scale = Math.min(scale + step, $("#scale-range").attr("max"));
+                scale = Math.min(scale + 5*step, $("#scale-range").attr("max"));
             }
             $("#canvas").drawMyImage("images/gundam00-lg.jpg", scale);
             $("#scale-range").val(scale);
