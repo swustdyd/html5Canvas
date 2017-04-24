@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas-图像处理</title>
+    <script src="jQuery/jquery-3.1.1.min.js"></script>
+    <script src="jQuery/jquery-canvas-images.js"></script>
+    <style type="text/css">
+        body,html{
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .canvas-div{
+            margin: 0 auto;
+            overflow: hidden;
+            background-color: #000;
+            height: 100%;
+        }
+        canvas{
+            margin: 0 auto;
+            display: block;
+        }
+        #scale-range{
+            display: block;
+            margin: 20px auto 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="canvas-div">
+        <canvas id="canvas" >
+            浏览器版本过低，请升级或更换浏览器
+        </canvas>
+        <input type="range" id="scale-range" min="0.5" max="3.0" value="1" step="0.01"/>
+    </div>
+    <script>
+        var scrollTop = 0;
+        $(document).ready(function(){
+            $("#canvas").attr("width", $(window).width() * 0.9);
+            $("#canvas").attr("height", $(window).height() * 0.9);
+            $("#scale-range").css("width", $(window).width() * 0.5);
+            $("#canvas").drawMyImage("images/gundam00-lg.jpg", $("#scale-range").val());
+            /*注册事件*/
+            if(document.addEventListener){
+                document.addEventListener('DOMMouseScroll',scrollFunc,false);
+            }//W3C
+            window.onmousewheel=document.onmousewheel=scrollFunc;//IE/Opera/Chrome/Safari
+        });
+        document.getElementById("scale-range").onmousemove = function () {
+            $("#canvas").drawMyImage("images/gundam00-lg.jpg", $("#scale-range").val());
+        }
+
+
+        function scrollFunc(e) {
+            var direct = 0;
+            e = e || window.event;
+            if(e.wheelDelta){//IE/Opera/Chrome
+                direct = e.wheelDelta;
+            }else if(e.detail){//Firefox
+                direct = e.detail;
+            }
+            var scale = parseFloat($("#scale-range").val());
+            var step = parseFloat($("#scale-range").attr("step"));
+            if(direct < 0){//下滚，缩小
+                scale = Math.max(scale - step, $("#scale-range").attr("min"));
+            }
+            if(direct > 0){
+                scale = Math.min(scale + step, $("#scale-range").attr("max"));
+            }
+            $("#canvas").drawMyImage("images/gundam00-lg.jpg", scale);
+            $("#scale-range").val(scale);
+        }
+    </script>
+</body>
+</html>
