@@ -56,7 +56,7 @@
             $(".controller").css({ width: $(window).width() * 0.5,
                 marginTop: ($(window).height() * 0.1 - $(".controller").height())/2
             });
-            $("#canvas").drawMyImage("images/gundam00-lg.jpg", $("#scale-range").val());
+            $("#canvas").drawMyImage("images/gundam00.png", $("#scale-range").val());
             /*注册事件*/
             if(document.addEventListener){
                 document.addEventListener('DOMMouseScroll',scrollFunc,false);
@@ -66,7 +66,7 @@
         var isMouseDown = false;
         document.getElementById("scale-range").onmousemove = function () {
             if(isMouseDown){
-                $("#canvas").drawMyImage("images/gundam00-lg.jpg", $("#scale-range").val());
+                $("#canvas").drawMyImage("images/gundam00.png", $("#scale-range").val());
             }
         };
         document.getElementById("scale-range").onmousedown = function () {
@@ -79,7 +79,7 @@
             isMouseDown = false;
         };
         document.getElementById("scale-range").onchange = function () {
-            $("#canvas").drawMyImage("images/gundam00-lg.jpg", $("#scale-range").val());
+            $("#canvas").drawMyImage("images/gundam00.png", $("#scale-range").val());
         };
 
         function scrollFunc(e) {
@@ -98,7 +98,7 @@
             if(direct > 0){
                 scale = Math.min(scale + 5*step, $("#scale-range").attr("max"));
             }
-            $("#canvas").drawMyImage("images/gundam00-lg.jpg", scale);
+            $("#canvas").drawMyImage("images/gundam00.png", scale);
             $("#scale-range").val(scale);
         }
     </script>

@@ -6,7 +6,7 @@
         context,
         waterMarkCanvas,
         waterMarkContext,
-        addWaterMark = true,
+        addWaterMark = false,
         waterContent = "AaronDeng",
         isMouseDown = false,
         lastPosition = {x: 0, y: 0},
