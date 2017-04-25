@@ -32,7 +32,9 @@
                 scale = currentScale;
                 image = new Image();
                 image.src = imageUrl;
-                image.onload = draw(currentPosition.x, currentPosition.y);
+                image.onload = function () {
+                    draw(totalMovePosition.x, totalMovePosition.y);
+                };
             }
         }
     );
@@ -44,7 +46,7 @@
         var dx = (canvas.width - drawWidth ) / 2;
         var dy = (canvas.height - drawHeight) / 2;
         context.clearRect(0, 0, canvas.width, canvas.height);
-        context.drawImage(image, dx + moveX + totalMovePosition.x, dy + moveY + totalMovePosition.y, drawWidth, drawHeight);
+        context.drawImage(image, dx + moveX, dy + moveY, drawWidth, drawHeight);
         waterMarkCanvas.width = canvas.width;
         waterMarkCanvas.height = canvas.height * 0.2;
         if(addWaterMark){
@@ -76,7 +78,7 @@
                 currentPosition = getCanvasMousePosition(e.clientX, e.clientY);
                 var moveX = currentPosition.x - lastPosition.x;
                 var moveY = currentPosition.y - lastPosition.y;
-                draw(moveX, moveY);
+                draw(moveX + totalMovePosition.x, moveY + totalMovePosition.y);
             }
 
         }
@@ -90,6 +92,12 @@
             isMouseDown = false;
         }
         canvas.onmouseout = function (e) {
+            if(isMouseDown){
+                var position = getCanvasMousePosition(e.clientX, e.clientY)
+                totalMovePosition.x += position.x - lastPosition.x;
+                totalMovePosition.y += position.y - lastPosition.y;
+                lastPosition = position;
+            }
             isMouseDown = false;
         }
     }
