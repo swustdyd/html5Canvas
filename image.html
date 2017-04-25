@@ -18,9 +18,12 @@
             background-color: #000;
             height: 100%;
         }
-        canvas{
+        #canvas{
             margin: 0 auto;
             display: block;
+        }
+        #canvas:hover{
+            cursor: pointer;
         }
         #scale-range{
             display: block;
@@ -49,10 +52,21 @@
             }//W3C
             window.onmousewheel=document.onmousewheel=scrollFunc;//IE/Opera/Chrome/Safari
         });
+        var isMouseDown = false;
         document.getElementById("scale-range").onmousemove = function () {
-            $("#canvas").drawMyImage("images/gundam00-lg.jpg", $("#scale-range").val());
-        }
-
+            if(isMouseDown){
+                $("#canvas").drawMyImage("images/gundam00-lg.jpg", $("#scale-range").val());
+            }
+        };
+        document.getElementById("scale-range").onmousedown = function () {
+            isMouseDown = true;
+        };
+        document.getElementById("scale-range").onmouseup = function () {
+            isMouseDown = false;;
+        };
+        document.getElementById("scale-range").onmouseout = function () {
+            isMouseDown = false;;
+        };
 
         function scrollFunc(e) {
             var direct = 0;
