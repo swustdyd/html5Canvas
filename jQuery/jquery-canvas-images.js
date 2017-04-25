@@ -17,7 +17,7 @@
         image;
 
     $.fn.extend({
-            "drawMyImage": function (url,currentScale) {
+            "drawMyImage": function (url, currentScale) {
                 canvas = document.getElementById(this.attr("id"));
                 waterMarkCanvas = document.getElementById("waterMarkCanvas");
                 try {
@@ -55,10 +55,9 @@
             waterMarkContext.font = "italic 36px sans-serif ";
             waterMarkContext.globalAlpha = 0.1;
             waterMarkContext.fillStyle = "#fff";
-            //alert(waterMarkCanvas.width)
             waterMarkContext.fillText(waterContent, waterMarkCanvas.width/2, waterMarkCanvas.height/2);
+            context.drawImage(waterMarkCanvas, 0, canvas.height - waterMarkCanvas.height);
         }
-        context.drawImage(waterMarkCanvas, 0, canvas.height - waterMarkCanvas.height);
     }
 
     function getCanvasMousePosition(x, y) {
@@ -80,8 +79,8 @@
                 var moveY = currentPosition.y - lastPosition.y;
                 draw(moveX + totalMovePosition.x, moveY + totalMovePosition.y);
             }
+        };
 
-        }
         canvas.onmouseup = function (e) {
             if(isMouseDown){
                 var position = getCanvasMousePosition(e.clientX, e.clientY)
@@ -90,14 +89,8 @@
                 lastPosition = position;
             }
             isMouseDown = false;
-        }
-        canvas.onmouseout = function (e) {
-            if(isMouseDown){
-                var position = getCanvasMousePosition(e.clientX, e.clientY)
-                totalMovePosition.x += position.x - lastPosition.x;
-                totalMovePosition.y += position.y - lastPosition.y;
-                lastPosition = position;
-            }
+        };
+        canvas.onmouseout = function () {
             isMouseDown = false;
         }
     }

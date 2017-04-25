@@ -25,9 +25,15 @@
         #canvas:hover{
             cursor: pointer;
         }
-        #scale-range{
+        .controller{
             display: block;
-            margin: 20px auto 0 auto;
+            margin: auto;
+        }
+        #scale-range{
+            width: 100%;
+        }
+        .controller input:hover{
+            cursor: pointer;
         }
     </style>
 </head>
@@ -36,15 +42,20 @@
         <canvas id="canvas" >
             浏览器版本过低，请升级或更换浏览器
         </canvas>
-        <input type="range" id="scale-range" min="0.5" max="3.0" value="1" step="0.01"/>
+        <div class="controller">
+            <input type="range" id="scale-range" min="0.2" max="5.0" value="1" step="0.01"/>
+        </div>
         <canvas id="waterMarkCanvas" style="display: none;"></canvas>
+        <canvas id="offCanvas" style="display: none;"></canvas>
     </div>
     <script>
-        var scrollTop = 0;
         $(document).ready(function(){
-            $("#canvas").attr("width", $(window).width() * 0.9);
-            $("#canvas").attr("height", $(window).height() * 0.9);
-            $("#scale-range").css("width", $(window).width() * 0.5);
+            $("#canvas").css("marginTop", $(window).height() * 0.05 );
+            $("#canvas").attr("width", $(window).width() * 0.9 );
+            $("#canvas").attr("height", $(window).height() * 0.85 );
+            $(".controller").css({ width: $(window).width() * 0.5,
+                marginTop: ($(window).height() * 0.1 - $(".controller").height())/2
+            });
             $("#canvas").drawMyImage("images/gundam00-lg.jpg", $("#scale-range").val());
             /*注册事件*/
             if(document.addEventListener){
@@ -65,7 +76,10 @@
             isMouseDown = false;;
         };
         document.getElementById("scale-range").onmouseout = function () {
-            isMouseDown = false;;
+            isMouseDown = false;
+        };
+        document.getElementById("scale-range").onchange = function () {
+            $("#canvas").drawMyImage("images/gundam00-lg.jpg", $("#scale-range").val());
         };
 
         function scrollFunc(e) {

@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="47c3f7ac-ebde-4a1e-9abb-ac6123518d30" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/image.html" afterPath="$PROJECT_DIR$/image.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jQuery/jquery-canvas-handWriting.js" afterPath="$PROJECT_DIR$/jQuery/jquery-canvas-handWriting.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jQuery/jquery-canvas-images.js" afterPath="$PROJECT_DIR$/jQuery/jquery-canvas-images.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -21,39 +23,38 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="image.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="image.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/image.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="26" column="9" lean-forward="true" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
+            <state relative-caret-position="455">
+              <caret line="55" column="67" lean-forward="true" selection-start-line="55" selection-start-column="67" selection-end-line="55" selection-end-column="67" />
               <folding>
                 <element signature="e#257#366#0" expanded="false" />
                 <element signature="n#style#0;n#canvas#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#canvas#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#2181#2328#0" expanded="false" />
+                <element signature="e#2403#2446#0" expanded="false" />
+                <element signature="e#2519#2564#0" expanded="false" />
+                <element signature="e#2638#2682#0" expanded="false" />
+                <element signature="e#2754#2854#0" expanded="false" />
+                <element signature="e#2888#3632#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jquery-canvas-images.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="jquery-canvas-images.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/jQuery/jquery-canvas-images.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="41" column="33" lean-forward="true" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jquery-canvas-handWriting.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/jQuery/jquery-canvas-handWriting.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="129" column="5" lean-forward="true" selection-start-line="124" selection-start-column="4" selection-end-line="129" selection-end-column="5" />
+            <state relative-caret-position="325">
+              <caret line="15" column="17" lean-forward="true" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
               <folding>
-                <element signature="e#2382#2519#0" expanded="false" />
-                <element signature="e#2545#2581#0" expanded="false" />
-                <element signature="e#2613#3459#0" expanded="false" />
-                <element signature="e#3496#3942#0" expanded="false" />
+                <element signature="e#2437#2661#0" expanded="false" />
+                <element signature="e#2732#2848#0" expanded="false" />
+                <element signature="e#2892#3234#0" expanded="false" />
+                <element signature="e#2921#3224#0" expanded="false" />
+                <element signature="e#3277#3617#0" expanded="false" />
+                <element signature="e#3659#3703#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -94,8 +95,9 @@
         <option value="$PROJECT_DIR$/jQuery-handWriting.js" />
         <option value="$PROJECT_DIR$/jquery-canvas-images.js" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/image.html" />
+        <option value="$PROJECT_DIR$/jQuery/jquery-canvas-handWriting.js" />
         <option value="$PROJECT_DIR$/jQuery/jquery-canvas-images.js" />
+        <option value="$PROJECT_DIR$/image.html" />
       </list>
     </option>
   </component>
@@ -127,6 +129,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -139,37 +142,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html5Canvas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html5Canvas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html5Canvas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html5Canvas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jQuery" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -278,15 +252,16 @@
       <workItem from="1492995933884" duration="25149000" />
       <workItem from="1493031392895" duration="1031000" />
       <workItem from="1493032467101" duration="2600000" />
-      <workItem from="1493081844720" duration="6681000" />
+      <workItem from="1493081844720" duration="7609000" />
+      <workItem from="1493090425279" duration="13616000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128970000" />
+    <option name="totallyTimeSpent" value="143514000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24841572" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -315,11 +290,57 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/image.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="26" column="9" lean-forward="false" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
+          <folding>
+            <element signature="e#257#366#0" expanded="false" />
+            <element signature="n#style#0;n#canvas#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#canvas#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#2181#2328#0" expanded="false" />
+            <element signature="e#2403#2446#0" expanded="false" />
+            <element signature="e#2519#2564#0" expanded="false" />
+            <element signature="e#2638#2682#0" expanded="false" />
+            <element signature="e#2754#2854#0" expanded="false" />
+            <element signature="e#2888#3632#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jQuery/jquery-canvas-images.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1250">
+          <caret line="52" column="53" lean-forward="true" selection-start-line="52" selection-start-column="53" selection-end-line="52" selection-end-column="53" />
+          <folding>
+            <element signature="e#2437#2661#0" expanded="false" />
+            <element signature="e#2732#2848#0" expanded="false" />
+            <element signature="e#2892#3234#0" expanded="false" />
+            <element signature="e#2921#3224#0" expanded="false" />
+            <element signature="e#3277#3617#0" expanded="false" />
+            <element signature="e#3659#3703#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jQuery/jquery-canvas-handWriting.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#2383#2520#0" expanded="false" />
+            <element signature="e#2546#2582#0" expanded="false" />
+            <element signature="e#2614#3460#0" expanded="false" />
+            <element signature="e#3497#3943#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/image.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1675">
@@ -327,6 +348,13 @@
           <folding>
             <element signature="e#257#366#0" expanded="false" />
             <element signature="n#style#0;n#canvas#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#canvas#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#2181#2328#0" expanded="false" />
+            <element signature="e#2403#2446#0" expanded="false" />
+            <element signature="e#2519#2564#0" expanded="false" />
+            <element signature="e#2638#2682#0" expanded="false" />
+            <element signature="e#2754#2854#0" expanded="false" />
+            <element signature="e#2888#3632#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -335,7 +363,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#2437#2661#0" expanded="false" />
+            <element signature="e#2732#2848#0" expanded="false" />
+            <element signature="e#2892#3234#0" expanded="false" />
+            <element signature="e#2921#3224#0" expanded="false" />
+            <element signature="e#3277#3617#0" expanded="false" />
+            <element signature="e#3659#3703#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -346,6 +381,13 @@
           <folding>
             <element signature="e#257#366#0" expanded="false" />
             <element signature="n#style#0;n#canvas#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#canvas#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#2181#2328#0" expanded="false" />
+            <element signature="e#2403#2446#0" expanded="false" />
+            <element signature="e#2519#2564#0" expanded="false" />
+            <element signature="e#2638#2682#0" expanded="false" />
+            <element signature="e#2754#2854#0" expanded="false" />
+            <element signature="e#2888#3632#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -354,7 +396,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#2437#2661#0" expanded="false" />
+            <element signature="e#2732#2848#0" expanded="false" />
+            <element signature="e#2892#3234#0" expanded="false" />
+            <element signature="e#2921#3224#0" expanded="false" />
+            <element signature="e#3277#3617#0" expanded="false" />
+            <element signature="e#3659#3703#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -365,6 +414,13 @@
           <folding>
             <element signature="e#257#366#0" expanded="false" />
             <element signature="n#style#0;n#canvas#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#canvas#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#2181#2328#0" expanded="false" />
+            <element signature="e#2403#2446#0" expanded="false" />
+            <element signature="e#2519#2564#0" expanded="false" />
+            <element signature="e#2638#2682#0" expanded="false" />
+            <element signature="e#2754#2854#0" expanded="false" />
+            <element signature="e#2888#3632#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -373,7 +429,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#2437#2661#0" expanded="false" />
+            <element signature="e#2732#2848#0" expanded="false" />
+            <element signature="e#2892#3234#0" expanded="false" />
+            <element signature="e#2921#3224#0" expanded="false" />
+            <element signature="e#3277#3617#0" expanded="false" />
+            <element signature="e#3659#3703#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -570,33 +633,47 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/jQuery/jquery-canvas-handWriting.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="129" column="5" lean-forward="true" selection-start-line="124" selection-start-column="4" selection-end-line="129" selection-end-column="5" />
+        <state relative-caret-position="325">
+          <caret line="15" column="24" lean-forward="true" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
           <folding>
-            <element signature="e#2382#2519#0" expanded="false" />
-            <element signature="e#2545#2581#0" expanded="false" />
-            <element signature="e#2613#3459#0" expanded="false" />
-            <element signature="e#3496#3942#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/image.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="26" column="9" lean-forward="true" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
-          <folding>
-            <element signature="e#257#366#0" expanded="false" />
-            <element signature="n#style#0;n#canvas#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#2383#2520#0" expanded="false" />
+            <element signature="e#2546#2582#0" expanded="false" />
+            <element signature="e#2614#3460#0" expanded="false" />
+            <element signature="e#3497#3943#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/jQuery/jquery-canvas-images.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="41" column="33" lean-forward="true" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
-          <folding />
+        <state relative-caret-position="325">
+          <caret line="15" column="17" lean-forward="true" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+          <folding>
+            <element signature="e#2437#2661#0" expanded="false" />
+            <element signature="e#2732#2848#0" expanded="false" />
+            <element signature="e#2892#3234#0" expanded="false" />
+            <element signature="e#2921#3224#0" expanded="false" />
+            <element signature="e#3277#3617#0" expanded="false" />
+            <element signature="e#3659#3703#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/image.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="455">
+          <caret line="55" column="67" lean-forward="true" selection-start-line="55" selection-start-column="67" selection-end-line="55" selection-end-column="67" />
+          <folding>
+            <element signature="e#257#366#0" expanded="false" />
+            <element signature="n#style#0;n#canvas#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#canvas#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#2181#2328#0" expanded="false" />
+            <element signature="e#2403#2446#0" expanded="false" />
+            <element signature="e#2519#2564#0" expanded="false" />
+            <element signature="e#2638#2682#0" expanded="false" />
+            <element signature="e#2754#2854#0" expanded="false" />
+            <element signature="e#2888#3632#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
