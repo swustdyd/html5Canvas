@@ -72,6 +72,9 @@
             $(".controller").css({ width: $(window).width() * 0.5,
                 marginTop: ($(window).height() * 0.1 - $(".controller").height())/2
             });
+            $("#magnifierButton").css({ top: $(".controller").offset().top + parseFloat( $(".controller").height() * 0.5 - $("#magnifierButton").height()/2),
+                left: $(".controller").offset().left + parseFloat($(".controller").width()) + 100
+            });
             $("#canvas").drawMyImage(imageUrl, $("#scale-range").val());
             /*注册事件*/
             if(document.addEventListener){
