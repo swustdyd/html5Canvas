@@ -64,7 +64,7 @@
             waterMarkContext.fillText(waterContent, waterMarkCanvas.width/2, waterMarkCanvas.height/2);
             context.drawImage(waterMarkCanvas, 0, canvas.height - waterMarkCanvas.height);
         }
-        if(isMagnifier){
+        if(isMagnifier && !addWaterMark){
             magnifierRadius = canvas.height / 6;
             magnifierCanvas.width = canvas.width * magnifierScale;
             magnifierCanvas.height = canvas.height * magnifierScale;
@@ -80,6 +80,7 @@
             context.beginPath();
             context.arc(currentPosition.x, currentPosition.y, magnifierRadius, 0, 2 * Math.PI);
             context.closePath();
+            context.fill();
             context.stroke();
             context.clip();
             var sx = currentPosition.x * magnifierScale - magnifierRadius;
@@ -112,7 +113,7 @@
             if(isMouseDown){
                 draw(moveX + totalMovePosition.x, moveY + totalMovePosition.y);
             }
-            if(isMagnifier){
+            if(isMagnifier && !isMouseDown){
                 draw(totalMovePosition.x, totalMovePosition.y);
             }
         };

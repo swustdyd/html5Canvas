@@ -64,6 +64,7 @@
         <canvas id="magnifierCanvas" style="display: none;"></canvas>
     </div>
     <script>
+        var imageUrl = "images/gundam-02.jpg";
         $(document).ready(function(){
             $("#canvas").css("marginTop", $(window).height() * 0.05 );
             $("#canvas").attr("width", $(window).width() * 0.9 );
@@ -71,7 +72,7 @@
             $(".controller").css({ width: $(window).width() * 0.5,
                 marginTop: ($(window).height() * 0.1 - $(".controller").height())/2
             });
-            $("#canvas").drawMyImage("images/gundam00.jpg", $("#scale-range").val());
+            $("#canvas").drawMyImage(imageUrl, $("#scale-range").val());
             /*注册事件*/
             if(document.addEventListener){
                 document.addEventListener('DOMMouseScroll',scrollFunc,false);
@@ -82,7 +83,7 @@
         var isMouseDown = false;
         document.getElementById("scale-range").onmousemove = function () {
             if(isMouseDown){
-                $("#canvas").drawMyImage("images/gundam00.jpg", $("#scale-range").val());
+                $("#canvas").drawMyImage(imageUrl, $("#scale-range").val());
             }
         };
         document.getElementById("scale-range").onmousedown = function () {
@@ -95,7 +96,7 @@
             isMouseDown = false;
         };
         document.getElementById("scale-range").onchange = function () {
-            $("#canvas").drawMyImage("images/gundam00.jpg", $("#scale-range").val());
+            $("#canvas").drawMyImage(imageUrl, $("#scale-range").val());
         };
         function scrollFunc(e) {
             var direct = 0;
@@ -113,7 +114,7 @@
             if(direct > 0){
                 scale = Math.min(scale + 5*step, $("#scale-range").attr("max"));
             }
-            $("#canvas").drawMyImage("images/gundam00.jpg", scale);
+            $("#canvas").drawMyImage(imageUrl, scale);
             $("#scale-range").val(scale);
         }
 
@@ -123,7 +124,7 @@
                 $(this).css("backgroundColor", "rgba(255,255,255,0.3)");
             }else {
                 $(this).css("backgroundColor", "rgba(255,255,255,0.1)");
-                $("#canvas").drawMyImage("images/gundam00.jpg", $("#scale-range").val());
+                $("#canvas").drawMyImage(imageUrl, $("#scale-range").val());
             }
             isMagnifier = !isMagnifier;
         });

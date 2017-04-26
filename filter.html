@@ -33,6 +33,7 @@
     <button id="filter">filter</button>
     <script type="text/javascript">
         var canvasa, canvasb, canvasaContext, canvasbContext;
+        var image = new Image();
         $(document).ready(function(){
             $("#canvasa").attr("width", $(window).width()/2 - 30);
             $("#canvasa").attr("height", $(window).height() * 0.9);
@@ -43,8 +44,7 @@
             canvasb = document.getElementById("canvasb");
             canvasaContext = canvasa.getContext("2d");
             canvasbContext = canvasb.getContext("2d");
-            var image = new Image();
-            image.src = "images/gundam00.jpg";
+            image.src = imageUrl;
             image.onload = function () {
                 var scale = Math.min(canvasa.width / image.width,  canvasa.height / image.height );
                 var drawWidth = image.width * scale;
@@ -53,6 +53,10 @@
                 var dy = (canvasa.height - drawHeight) / 2;
                 canvasaContext.drawImage(image, dx, dy, drawWidth, drawHeight);
             }
+        });
+        $("#filter").click(function () {
+            var imageData = canvasaContext.getImageData(0, 0, canvasa.width, canvasa.height);
+            canvasbContext.putImageData(imageData, 0, 0, 0, 0, canvasb.width, canvasb.height);
         });
     </script>
 </body>
