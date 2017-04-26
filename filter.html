@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jQuery/jquery-3.1.1.min.js"></script>
+    <style type="text/css">
+        html, body{
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .canvas{
+            display: inline-block;
+            float: left;
+        }
+        canvas{
+            margin: 10px;
+            border: 1px solid #aaa;
+        }
+        #filter{
+            height: 30px;
+            position: fixed;
+            bottom: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvasa" class="canvas"></canvas>
+    <canvas id="canvasb" class="canvas"></canvas>
+    <button id="filter">filter</button>
+    <script type="text/javascript">
+        var canvasa, canvasb, canvasaContext, canvasbContext;
+        $(document).ready(function(){
+            $("#canvasa").attr("width", $(window).width()/2 - 30);
+            $("#canvasa").attr("height", $(window).height() * 0.9);
+            $("#canvasb").attr("width", $(window).width()/2 - 30);
+            $("#canvasb").attr("height", $(window).height() * 0.9);
+            $("#filter").css("left", $(window).width()/2 - 30);
+            canvasa = document.getElementById("canvasa");
+            canvasb = document.getElementById("canvasb");
+            canvasaContext = canvasa.getContext("2d");
+            canvasbContext = canvasb.getContext("2d");
+            var image = new Image();
+            image.src = "images/gundam00.jpg";
+            image.onload = function () {
+                var scale = Math.min(canvasa.width / image.width,  canvasa.height / image.height );
+                var drawWidth = image.width * scale;
+                var drawHeight = image.height * scale;
+                var dx = (canvasa.width - drawWidth) / 2;
+                var dy = (canvasa.height - drawHeight) / 2;
+                canvasaContext.drawImage(image, dx, dy, drawWidth, drawHeight);
+            }
+        });
+    </script>
+</body>
+</html>
