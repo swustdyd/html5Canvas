@@ -6,6 +6,8 @@
         context,
         waterMarkCanvas,
         waterMarkContext,
+        magnifierCanvas,
+        magnifierCanvasContext,
         addWaterMark = false,
         waterContent = "AaronDeng",
         isMouseDown = false,
@@ -14,15 +16,19 @@
         totalMovePosition = {x: 0, y:0},
         scale = 1,
         imageUrl,
-        image;
+        image,
+        magnifierScale = 2,
+        magnifierRadius = 100;
 
     $.fn.extend({
             "drawMyImage": function (url, currentScale) {
                 canvas = document.getElementById(this.attr("id"));
                 waterMarkCanvas = document.getElementById("waterMarkCanvas");
+                magnifierCanvas = document.getElementById("magnifierCanvas");
                 try {
                     context = canvas.getContext("2d");
                     waterMarkContext = waterMarkCanvas.getContext("2d");
+                    magnifierCanvasContext = magnifierCanvas.getContext("2d");
                 } catch (e) {
                     throw "function 'drawMyImage' only supported by canvas tag and must be have id for attribute";
                     return;
@@ -58,6 +64,33 @@
             waterMarkContext.fillText(waterContent, waterMarkCanvas.width/2, waterMarkCanvas.height/2);
             context.drawImage(waterMarkCanvas, 0, canvas.height - waterMarkCanvas.height);
         }
+        if(isMagnifier){
+            magnifierRadius = canvas.height / 6;
+            magnifierCanvas.width = canvas.width * magnifierScale;
+            magnifierCanvas.height = canvas.height * magnifierScale;
+            drawScale = Math.min(magnifierCanvas.width / image.width, magnifierCanvas.height / image.height) * scale;//等比缩放
+            drawWidth = image.width * drawScale;
+            drawHeight = image.height * drawScale;
+            dx = (magnifierCanvas.width - drawWidth ) / 2;
+            dy = (magnifierCanvas.height - drawHeight) / 2;
+            magnifierCanvasContext.drawImage(image, dx + moveX *magnifierScale , dy + moveY *magnifierScale, drawWidth, drawHeight);
+            context.save();
+            context.strokeStyle = "#fff";
+            context.lineWidth = 3;
+            context.beginPath();
+            context.arc(currentPosition.x, currentPosition.y, magnifierRadius, 0, 2 * Math.PI);
+            context.closePath();
+            context.stroke();
+            context.clip();
+            var sx = currentPosition.x * magnifierScale - magnifierRadius;
+            var sy = currentPosition.y * magnifierScale - magnifierRadius;
+            context.drawImage(magnifierCanvas,
+                sx, sy,
+                magnifierRadius*2, magnifierRadius*2,
+                currentPosition.x - magnifierRadius, currentPosition.y - magnifierRadius,
+                magnifierRadius*2, magnifierRadius*2);
+            context.restore();
+        }
     }
 
     function getCanvasMousePosition(x, y) {
@@ -73,11 +106,14 @@
             lastPosition = getCanvasMousePosition(e.clientX, e.clientY);
         };
         canvas.onmousemove = function (e) {
+            currentPosition = getCanvasMousePosition(e.clientX, e.clientY);
+            var moveX = currentPosition.x - lastPosition.x;
+            var moveY = currentPosition.y - lastPosition.y;
             if(isMouseDown){
-                currentPosition = getCanvasMousePosition(e.clientX, e.clientY);
-                var moveX = currentPosition.x - lastPosition.x;
-                var moveY = currentPosition.y - lastPosition.y;
                 draw(moveX + totalMovePosition.x, moveY + totalMovePosition.y);
+            }
+            if(isMagnifier){
+                draw(totalMovePosition.x, totalMovePosition.y);
             }
         };
 
