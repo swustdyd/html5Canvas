@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html >
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -22,14 +22,21 @@
         .controller{
             height: 30px;
             position: fixed;
-            bottom: 10px;
         }
-
         .controller button{
+            border: none;
             height: 30px;
             border-radius: 5px;
+            background-color: #337ab7;
+            color: #fff;
         }
-
+        .controller button:hover{
+            background-color: #245680;
+            cursor: pointer;
+        }
+        /*#canvasa{
+            filter: blur(3px);
+        }*/
     </style>
 </head>
 <body>
@@ -48,11 +55,12 @@
         var imageUrl = "images/gundam-02.jpg";
         var drawWidth, drawHeight, dx, dy;
         $(document).ready(function(){
-            $("#canvasa").attr("width", $(window).width()/2 - 30);
-            $("#canvasa").attr("height", $(window).height() * 0.9);
-            $("#canvasb").attr("width", $(window).width()/2 - 30);
-            $("#canvasb").attr("height", $(window).height() * 0.9);
-            $(".controller").css("left", $(window).width()/2 - $(".controller").width()/2);
+            $("#canvasa").attr("width", window.innerWidth/2 - 30);
+            $("#canvasa").attr("height", window.innerHeight * 0.9);
+            $("#canvasb").attr("width", window.innerWidth/2 - 30);
+            $("#canvasb").attr("height", window.innerHeight * 0.9);
+            $(".controller").css({left: window.innerWidth/2 - $(".controller").width()/2,
+                top: $("#canvasa").offset().top + $("#canvasa").height() + 10});
             canvasa = document.getElementById("canvasa");
             canvasb = document.getElementById("canvasb");
             canvasaContext = canvasa.getContext("2d");
