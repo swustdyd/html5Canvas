@@ -65,7 +65,7 @@
             context.drawImage(waterMarkCanvas, 0, canvas.height - waterMarkCanvas.height);
         }
         if(isMagnifier && !addWaterMark){
-            magnifierRadius = canvas.height / 6;
+            magnifierRadius = canvas.height / 4;
             magnifierCanvas.width = canvas.width * magnifierScale;
             magnifierCanvas.height = canvas.height * magnifierScale;
             drawScale = Math.min(magnifierCanvas.width / image.width, magnifierCanvas.height / image.height) * scale;//等比缩放

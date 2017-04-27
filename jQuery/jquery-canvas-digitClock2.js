@@ -391,9 +391,9 @@
         renderDigit(MARGIN_LEFT + 78 * (RADIUS + 1), MARGIN_TOP, parseInt(seconds/10), context);
         renderDigit(MARGIN_LEFT + 93 * (RADIUS + 1), MARGIN_TOP, parseInt(seconds%10), context);
         var i = 0;
-        /*if(balls.length > 2000){
+        if(balls.length > 2000){
          balls.splice(0, 1000);
-         }*/
+         }
         context.save();
         for(; i < balls.length; i++){
             context.fillStyle = balls[i].color;
