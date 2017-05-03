@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jQuery/jquery-3.1.1.min.js"></script>
+    <style type="text/css">
+        .canvas-div{
+            width: 500px;
+            margin: 30px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="canvas-div">
+        <canvas id="canvas">
+            浏览器版本过低，请升级或更换浏览器
+        </canvas>
+        <div id="items"></div>
+    </div>
+
+    <script type="text/javascript">
+        var canvas, context;
+        var circleX = 260, circleY = 260, R = 250;
+        var itemArray = [
+            {num: 10, color: "#ffff00"}, {num: 50, color: "#1F94FF"}, {num: 30, color: "#5A1F58"},
+            {num: 150, color: "#F569DE"}, {num: 250, color: "#2BEF2B"}, {num: 200, color: "#F51B1B"}];
+        $(document).ready(function () {
+            var width = $(".canvas-div").css("width").match(/^\d+(\.\d?)?/)[0];
+            canvas = document.getElementById("canvas");
+            canvas.width = width;
+            canvas.height = width;
+            circleX = circleY = width/2;
+            R = width/2 - 5;
+            context = canvas.getContext("2d");
+            context.strokeStyle = "#337ab7";
+            context.arc(circleX, circleY, R, 0, 2 * Math.PI);
+            context.stroke();
+            var total = 0;
+            for(var i in itemArray){
+                total += itemArray[i].num;
+            }
+            i = 0;
+            var startDeg = 0, endDeg = 0;
+            for(i in itemArray){
+                var deg = itemArray[i].num / total * Math.PI * 2;//计算每个部分的度数
+                endDeg = startDeg + deg;
+                drawSector(circleX, circleY, R, startDeg, endDeg, itemArray[i].color);
+                addItem(itemArray[i].num, itemArray[i].color);
+                startDeg = endDeg;
+            }
+        });
+
+        function addItem(num, color) {
+            var span = document.createElement("span");
+            span.style.display = "inline-block";
+            span.style.backgroundColor = color;
+            span.style.borderRadius = "4px";
+            span.style.border = "none";
+            span.style.width = "20px";
+            span.style.height = "20px";
+            span.style.color = "#fff";
+            span.style.margin = "0 5px";
+            var div = document.createElement("div");
+            div.style.display = "inline-block";
+            div.style.height = "20px";
+            div.append(span);
+            div.append(num);
+            $("#items").append(div);
+        }
+        
+        function drawSector(x, y, r, startDeg, endDeg, color) {
+            context.fillStyle = color;
+            context.strokeStyle = color;
+            context.save();
+            context.translate(x, y);//移动到起始位置
+            context.beginPath();
+            context.arc(0, 0, r, startDeg, endDeg);//先画圆弧
+            context.stroke();
+            context.save();
+            context.rotate(endDeg);
+            context.moveTo(r, 0);
+            context.lineTo(0, 0);
+            context.stroke();
+            context.restore();
+            context.rotate(startDeg);
+            context.lineTo(r, 0);
+            context.restore();
+            //context.stroke();
+            context.fill();
+        }
+    </script>
+</body>
+</html>
